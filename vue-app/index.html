@@ -8,8 +8,108 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app"></div>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <div id="app">
+    <nav>
+      <h1 @click="scrollToSection('home')">THE GOAT BEARD</h1>
+      <button id="menu-toggle" aria-label="Toggle menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <div id="menu" class="menu">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#team">Our Team</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>THE GOAT BEARD<br />BARBER SHOP</h1>
+        <p>Experience luxury grooming with unrivaled style. Where precision meets perfection.</p>
+        <button id="book-appointment">Book Appointment</button>
+      </div>
+    </section>
+
+    <section id="services" class="services container">
+      <h2>Our Services</h2>
+      <div class="grid-3" id="services-list"></div>
+    </section>
+
+    <section id="team" class="team container">
+      <h2>Meet Our Expert Barbers</h2>
+      <div class="grid-3" id="team-list"></div>
+    </section>
+
+    <section id="gallery" class="gallery container">
+      <h2>Our Gallery</h2>
+      <div class="gallery-grid" id="gallery-list"></div>
+    </section>
+
+    <section id="booking" class="booking container">
+      <h2>Book Your Appointment</h2>
+      <form id="booking-form" class="booking-form">
+        <div id="step-1" class="step">
+          <label for="date">Select Date</label>
+          <input type="date" id="date" name="date" required />
+
+          <label for="worker">Select Worker</label>
+          <select id="worker" name="worker" required>
+            <option value="" disabled selected>Choose a worker</option>
+          </select>
+
+          <label for="service">Select Service</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Choose a service</option>
+          </select>
+
+          <button type="button" id="next-step">Next</button>
+        </div>
+
+        <div id="step-2" class="step" style="display:none;">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required />
+
+          <label for="notes">Additional Notes</label>
+          <textarea id="notes" name="notes" rows="4" placeholder="Any special requests or requirements..."></textarea>
+
+          <button type="button" id="back-step">Back</button>
+          <button type="submit">Confirm Booking</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="contact" class="contact container">
+      <h2>Contact Us</h2>
+      <form id="contact-form" class="contact-form">
+        <label for="contact-name">Name</label>
+        <input type="text" id="contact-name" name="contact-name" required />
+
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" name="contact-email" required />
+
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="contact-message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <p>© 2025 THE GOAT BEARD BARBER SHOP. All rights reserved.</p>
+    </footer>
+  </div>
+
   <script src="main.js"></script>
 </body>
 </html>
