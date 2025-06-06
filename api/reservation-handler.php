@@ -22,7 +22,7 @@ try {
     $data = json_decode($json, true);
 
     // Validate required fields
-    $required_fields = ['name', 'email', 'phone', 'service', 'date'];
+    $required_fields = ['name', 'email', 'phone', 'service', 'date', 'worker'];
     foreach ($required_fields as $field) {
         if (empty($data[$field])) {
             throw new Exception("Missing required field: $field");
@@ -49,7 +49,8 @@ try {
             'reservation_id' => uniqid(),
             'name' => $data['name'],
             'date' => $data['date'],
-            'service' => $data['service']
+            'service' => $data['service'],
+            'worker' => $data['worker']
         ]
     ];
 
